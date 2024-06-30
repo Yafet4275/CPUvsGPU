@@ -1,0 +1,15 @@
+# Use the NVIDIA PyTorch container image as the base image
+FROM nvcr.io/nvidia/pytorch:24.05-py3
+
+# Set the working directory
+WORKDIR /workspace
+
+# Expose ports for Jupyter Notebook and SSH
+EXPOSE 8888 22
+
+# Install any additional dependencies here (if needed)
+# For example:
+# RUN pip install some-package
+
+# Default command to run Jupyter Notebook
+CMD ["jupyter", "notebook", "--allow-root", "--ip=0.0.0.0", "--no-browser", "--notebook-dir=/workspace"]
